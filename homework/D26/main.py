@@ -1,0 +1,25 @@
+import scrapy
+from scrapy.crawler import CrawlerProcess
+from scrapy.utils.project import get_project_settings
+
+
+def main():
+	# D28 url and filename
+    '''target_urls = [
+        'https://www.ptt.cc/bbs/Gossiping/M.1559788476.A.074.html',
+        'https://www.ptt.cc/bbs/Gossiping/M.1557928779.A.0C1.html'
+    ]
+    process = CrawlerProcess(get_project_settings())
+    process.crawl('PTTCrawler', start_urls=target_urls, filename='test.json')
+    process.start()'''
+
+    # D29 borad
+    # target_board = ['Movie', 'NBA']
+    target_board = ['Movie']
+    process = CrawlerProcess(get_project_settings())
+    for board in target_board:
+        process.crawl('PTTCrawler', board=board)
+        process.start()    
+
+if __name__ == '__main__':
+    main()
